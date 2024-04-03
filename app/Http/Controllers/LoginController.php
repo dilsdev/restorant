@@ -18,14 +18,14 @@ class LoginController extends Controller
             // Session(['nama', $nama]);
             Session::put('nama', $nama);
             Session::put('id_karyawan', $id_karyawan);
-            return redirect()->route('produk');
+            return redirect()->route('index');
         }
         return view('login')->with('error', 'Username atau password salah.');
     }
     public function logout(Request $request)
     {
-        $request->session()->invalidate(); // Invalidasi session
-        $request->session()->regenerateToken(); // Regenerate CSRF token
-        return view('login'); // Redirect to login page
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return view('login');
     }
 }
