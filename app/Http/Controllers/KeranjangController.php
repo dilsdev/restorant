@@ -10,6 +10,8 @@ use App\Models\Pesanan;
 use App\Models\Produk;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Validator;
+
 
 class KeranjangController extends Controller
 {
@@ -36,6 +38,11 @@ class KeranjangController extends Controller
     }
     public function create(Request $request)
     {
+
+        $cekbarang = Produk::find($request->id_produk);
+        if ($request->quantity > $cekbarang->sisa) {
+            return redirect()->back()->with(['error' => 'Jumlah yang diminta melebihi sisa produk yang tersedia'])->withInput();
+        }
         $produk = Keranjang::where('id_produk', $request->id_produk)->first();
         $tambah = $request->quantity;
         if ($produk) {
@@ -86,7 +93,7 @@ class KeranjangController extends Controller
         foreach ($data as $isi) {
             $produk = Produk::find($isi->id_produk);
             $subtotal = ($isi->qty * $produk->harga);
-            $produk->sisa -=$isi->qty;
+            $produk->sisa -= $isi->qty;
             $produk->save();
             ItemPesanan::create([
                 "id_pesanan" => $keranjang->id_pesanan,

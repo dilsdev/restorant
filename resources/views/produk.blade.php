@@ -1,10 +1,10 @@
 @extends('layout.template')
 @section('template')
-    <div class="row col-12 m-2">
+    <div class="d-flex gap-5 align-items-center m-2">
         <!-- Button trigger modal -->
         <button
             type="button"
-            class="btn col-2 btn-primary btn-lg"
+            class="btn btn-primary btn-lg"
             data-bs-toggle="modal"
             data-bs-target="#modalId"
         >
@@ -121,6 +121,18 @@
             </form>
             </div>
         </div>
+
+        <form method="GET" action="/produk" class="col-4" style="float: right; margin-left: auto">
+            <input
+                type="search"
+                class="form-control"
+                name="search"
+                id="inputPassword6"
+                aria-describedby="helpId"
+                placeholder="Search"
+            />
+        </form>
+
 
     </div>
     <div class="row">

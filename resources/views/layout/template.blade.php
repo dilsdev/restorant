@@ -19,7 +19,7 @@
     <body>
         <div class="container">
             <nav
-                class="navbar navbar-expand-xl navbar-light bg-light"
+                class="navbar navbar-expand-xxl navbar-light bg-light"
             >
                 <div class="container">
                     <a class="navbar-brand" href="#"><strong>Restoran</strong></a>
@@ -37,7 +37,7 @@
                     <div class="collapse navbar-collapse" id="collapsibleNavId">
                         <ul class="navbar-nav me-auto mt-2 mt-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link" href="/index">Home</a>
+                                <a class="nav-link" href="/index">Pesan</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/pesanan">Pesanan</a>

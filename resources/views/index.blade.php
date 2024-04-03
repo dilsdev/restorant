@@ -1,5 +1,11 @@
 @extends('layout.template')
 @section('template')
+@if (session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
+
     <div class="card">
         <div class="card-body row">
             <h4 class="card-title">Pesan</h4>
@@ -24,7 +30,7 @@
                 <div class="mb-3">
                     <label for="id_pelanggan" class="form-label">Pelanggan</label>
                         <input aria-describedby="helpId" class="form-control form-control-lg" value="{{ $data_terakhir->nama }}" type="text" readonly>
-                        <small id="helpId" class="text-muted ">*hanya bisa memilih satu pelanggan, hapus keranjang jika inginmemilih pelanggan lain</small>
+                        <small id="helpId" class="" style="color: red; font-size: 1rem">*hanya bisa memilih satu pelanggan, hapus keranjang jika ingin memilih pelanggan lain</small>
                         <input id="id_pelanggan"  type="hidden" name="id_pelanggan" value="{{ $data_terakhir->id_pelanggan }}">
                 </div>
                 @endif
@@ -37,7 +43,7 @@
                         class="form-select form-select-lg"
                         name="id_produk"
                         id="id_produk"
-                        
+
                     >
                         <option selected>Pilih produk</option>
                         @foreach ($produk as $item5)
@@ -198,7 +204,7 @@
                             aria-hidden="true"
                         >
                             <div
-                                class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm"
+                                class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg"
                                 role="document"
                             >
                                 <div class="modal-content">
@@ -236,7 +242,12 @@
                                             >
                                                 <option selected>Pilih meja</option>
                                                 @foreach ($meja as $item6)
-                                                <option  value="{{ $item6->id_meja }}">meja:{{ $item6->nomor_meja }}     kapasitas : {{ $item6->kapasitas }}</option>
+
+                                                <option @if ($item6->status === 'Sedang di gunakan')
+                                                    @disabled(true) value="{{ $item6->id_meja }}">meja:{{ $item6->nomor_meja }}     kapasitas : {{ $item6->kapasitas }} (sedang di pakai)
+                                                    @else
+                                                    value="{{ $item6->id_meja }}">meja:{{ $item6->nomor_meja }}     kapasitas : {{ $item6->kapasitas }}
+                                                @endif </option>
                                                 @endforeach
                                             </select>
                                         </div>

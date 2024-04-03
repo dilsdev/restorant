@@ -104,7 +104,16 @@
         options,
     );
 </script>
-
+<form method="GET" action="/pelanggan" class="col-4" style="float: right; margin-left: auto">
+    <input
+        type="search"
+        class="form-control"
+        name="search"
+        id="inputPassword6"
+        aria-describedby="helpId"
+        placeholder="Search"
+    />
+</form>
 <div
     class="table-responsive"
 >
@@ -133,6 +142,7 @@
             @endforeach
         </tbody>
     </table>
+    {{ $data->links() }}
 </div>
 
 @endsection

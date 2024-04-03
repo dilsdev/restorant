@@ -3,6 +3,16 @@
 <div
     class="table-responsive-xxl"
 >
+<form method="GET" action="/pesanan" class="col-4" style="float: right; margin-left: auto">
+    <input
+        type="search"
+        class="form-control"
+        name="search"
+        id="inputPassword6"
+        aria-describedby="helpId"
+        placeholder="Search"
+    />
+</form>
     <table
         class="table table-striped table-hover"
     >
@@ -42,6 +52,9 @@
             @endforeach
         </tbody>
     </table>
+
+    {{ $data->links() }}
+
 </div>
 
 @endsection
