@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Produk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class ProdukController extends Controller
 {
@@ -41,7 +42,14 @@ class ProdukController extends Controller
     {
         $data  = Produk::findOrFail($id);
         $data->update($request->all());
+
+
         if ($request->hasFile('gambar')) {
+            $file_path = public_path('foto/' . $data->gambar);
+            if (file_exists($file_path)) {
+                File::delete($file_path);
+            }
+
             $file = $request->file('gambar');
             $filename = time() . '_' . $file->getClientOriginalName();
             $file->move('foto/', $filename);
@@ -54,7 +62,18 @@ class ProdukController extends Controller
     public function delete(Request $request)
     {
         $data = Produk::find($request->id);
+
+        if (!$data) {
+            return redirect()->route('produk')->with('error', 'Data tidak ditemukan');
+        }
+
+        $file_path = public_path('foto/' . $data->gambar);
+        if (file_exists($file_path)) {
+            File::delete($file_path);
+        }
+
         $data->delete();
-        return redirect()->route('produk')->with('hapus', 'Data berhasil di hapus');
+
+        return redirect()->route('produk')->with('hapus', 'Data berhasil dihapus');
     }
 }

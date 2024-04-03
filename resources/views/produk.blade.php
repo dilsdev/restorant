@@ -170,7 +170,7 @@
                             alt=""
                         />
                         </td>
-                        <td>{{ $item->harga }}</td>
+                        <td>Rp.{{ number_format($item->harga, 0, ',', '.') }}</td>
                         <td>{{ $item->sisa }}</td>
                         <td>{{ $item->deskripsi }}</td>
                         <td><button

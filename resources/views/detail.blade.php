@@ -28,7 +28,7 @@
                         <td>{{ $key++ }}</td>
                         <td>{{ $item->nama_produk }}</td>
                         <td>{{ $item->jumlah }}</td>
-                        <td>{{ $item->subtotal }}</td>
+                        <td>Rp.{{ number_format($item->subtotal, 0, ',', '.') }}</td>
                         @php
                             $total += $item->subtotal;
                         @endphp
@@ -38,7 +38,7 @@
                         <td>Total</td>
                         <td></td>
                         <td></td>
-                        <td>Rp.{{ $total }}</td>
+                        <td>Rp.{{ number_format($total, 0, ',', '.') }}</td>
                     </tr>
                 </tbody>
             </table>

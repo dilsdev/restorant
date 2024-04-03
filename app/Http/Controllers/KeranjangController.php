@@ -103,6 +103,9 @@ class KeranjangController extends Controller
             ]);
             $isi->delete();
         }
+        $data_meja = Meja::find($request->id_meja);
+        $data_meja->status = "Sedang di gunakan";
+        $data_meja->save();
         return redirect()->route('index');
     }
 }

@@ -36,7 +36,7 @@
                 <td>{{ $item->nama }}</td>
                 <td>{{ $item->nomor_meja }}</td>
                 <td>{{ $item->nama_karyawan }}</td>
-                <td>Rp.{{ $item->total_harga }}</td>
+                <td>Rp.{{ number_format($item->total_harga, 0, ',', '.') }}</td>
                 <td>
                     <a
                         name="detail"

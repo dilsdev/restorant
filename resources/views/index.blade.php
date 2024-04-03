@@ -89,7 +89,7 @@
                     <td>{{ $item->nama }}</td>
                     <td>{{ $item->nama_produk}}</td>
                     <td>{{ $item->qty }}</td>
-                    <td>Rp.{{ ($item->harga * $item->qty) }}</td>
+                    <td>Rp.{{ number_format($item->harga * $item->qty, 0, ',', '.') }}</td>
                     <td>
 
 
@@ -175,7 +175,7 @@
                     <td>Total harga</td>
                     <td></td>
                     <td></td>
-                    <td>Rp.{{ $total_harga }}</td>
+                    <td>Rp {{ number_format($total_harga, 0, ',', '.') }}</td>
                     <td></td>
                     <td>
 
@@ -230,7 +230,7 @@
                                                 {{ $data_terakhir->nama }}
                                                 @endif
                                             </li>
-                                            <li class="list-group-item">Total bayar :Rp.{{ $total_harga }}</li>
+                                            <li class="list-group-item">Total bayar :Rp.{{ number_format($total_harga, 0, ',', '.') }}</li>
                                         </ul>
 
                                         <div class="mb-3">
