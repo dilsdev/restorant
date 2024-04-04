@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChartController;
 use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MejaController;
@@ -51,3 +52,6 @@ Route::put('status/{id}', [MejaController::class, 'status']);
 
 Route::get('pesanan', [PesananController::class, 'index'])->name('pesanan');
 Route::get('detail/{id}', [PesananController::class, 'detail']);
+
+Route::get('barangdibeli', [ChartController::class, 'dibeli']);
+Route::get('barangbelumdibeli', [ChartController::class, 'belumdibeli']);

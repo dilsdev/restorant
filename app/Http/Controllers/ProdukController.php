@@ -35,7 +35,8 @@ class ProdukController extends Controller
             $data->gambar = $filename;
             $data->save();
         }
-        return redirect()->route('produk')->with('success', 'data berhasil di tambahkan');
+        // return redirect()->route('produk')->with('success', 'data berhasil di tambahkan');
+        return redirect()->back();
     }
 
     public function update(Request $request, $id)
@@ -56,7 +57,9 @@ class ProdukController extends Controller
             $data->gambar = $filename;
             $data->save();
         }
-        return redirect()->route('produk')->with('success', 'data berhasil di tambahkan');
+        // return redirect()->route('produk')->with('success', 'data berhasil di tambahkan');
+        return redirect()->back();
+
     }
 
     public function delete(Request $request)
@@ -74,6 +77,7 @@ class ProdukController extends Controller
 
         $data->delete();
 
-        return redirect()->route('produk')->with('hapus', 'Data berhasil dihapus');
+        // return redirect()->route('produk')->with('hapus', 'Data berhasil dihapus');
+        return redirect()->back();
     }
 }

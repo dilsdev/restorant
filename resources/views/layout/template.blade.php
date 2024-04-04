@@ -19,7 +19,7 @@
     <body>
         <div class="container">
             <nav
-                class="navbar navbar-expand-xxl navbar-light bg-light"
+                class="navbar navbar-expand-xl navbar-light bg-light"
             >
                 <div class="container">
                     <a class="navbar-brand" href="#"><strong>Restoran</strong></a>
@@ -37,23 +37,32 @@
                     <div class="collapse navbar-collapse" id="collapsibleNavId">
                         <ul class="navbar-nav me-auto mt-2 mt-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link" href="/index">Pesan</a>
+                                <a class="nav-link " style="font-size: 1.2rem" href="/index">Pesan</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/pesanan">Pesanan</a>
+                                <a class="nav-link " style="font-size: 1.2rem" href="/pesanan">Pesanan</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/produk">Produk</a>
+                                <a class="nav-link " style="font-size: 1.2rem" href="/produk">Produk</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/pelanggan">Pelangan</a>
+                                <a class="nav-link " style="font-size: 1.2rem" href="/pelanggan">Pelangan</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/meja">Meja</a>
+                                <a class="nav-link " style="font-size: 1.2rem" href="/meja">Meja</a>
                             </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" style="font-size: 1.2rem"  href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                  Chart
+                                </a>
+                                <ul class="dropdown-menu">
+                                  <li><a class="dropdown-item" style="font-size: 1rem;" href="barangbelumdibeli">Data barang belum di beli</a></li>
+                                  <li><a class="dropdown-item" style="font-size: 1rem;" href="barangdibeli">Data barang sudah di beli</a></li>
+                                </ul>
+                              </li>
                         </ul>
                         <div class="d-flex justify-content-center align-items-center gap-4">
-                        <h5><strong>Haloo {{ session()->get('nama') }}</strong></h2>
+                        <h5><strong>Selamat datang,  {{ session()->get('nama') }}</strong></h2>
                         <h5>
                             <a
                             name="logout"
@@ -71,6 +80,7 @@
             </nav>
 
             @yield('template')
+
         </div>
     </body>
     </html>

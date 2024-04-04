@@ -26,6 +26,7 @@ class PelangganController extends Controller
     public function tambahpelanggan(Request $request)
     {
         Pelanggan::create($request->all());
-        return redirect()->route('pelanggan');
+        // return redirect()->route('pelanggan');
+        return redirect()->back();
     }
 }
